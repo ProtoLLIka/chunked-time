@@ -20,9 +20,26 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
         ],
       },
     ]
@@ -33,5 +50,10 @@ module.exports = {
       template: "./public/index.html",
       inject: true,
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, 'src/components'),
+    },
+  },
 };

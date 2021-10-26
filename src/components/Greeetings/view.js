@@ -1,14 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import styles from './styles.scss';
+import styles from "./styles.scss";
 
-const View = () => {
-  console.log(styles.test);
-  return (
-    <div>
-      hello creator!
-    </div>
-  )
-}
+const View = () => <div className={styles.test}>hello creator!</div>;
 
-export default View
+export default View;
